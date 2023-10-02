@@ -1,4 +1,24 @@
-<p>
-Good afternoon.
-<%= @message %>
-</p>
+<section>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title
+        <th>Publisher
+        <th>Release year
+        <th>Pages
+        <th>Price
+      </tr>
+    </thead>
+    <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %>
+        <td><%= book.publisher %>
+        <td><%= book.year %>
+        <td><%= book.pages %>
+        <td><%= book.list_price %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>

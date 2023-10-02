@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
   def index
-    @message = "hello, cosc415"
+    @books = Book.all.order(:title) # order(title: :desc)
+  end
+
+  def show
+    @book = Book.find(params[:id])
   end
 end
