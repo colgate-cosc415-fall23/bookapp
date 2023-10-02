@@ -13,7 +13,7 @@
     <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= book.title %>
+        <td><%= link_to book.title, book_path(book) %>
         <td><%= book.publisher %>
         <td><%= book.year %>
         <td><%= book.pages %>
@@ -22,5 +22,7 @@
     <% end %>
     </tbody>
   </table>
+  <br>
+  <%= link_to "Create new book", new_book_path, class: "btn btn-secondary" %>
   </div>
 </section>
