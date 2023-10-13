@@ -14,6 +14,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(create_params)
     if @book.save
+      flash[:notice] = "#{@book.title} successfully created"
       redirect_to books_path and return
     else
       render 'new'
