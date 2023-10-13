@@ -8,6 +8,8 @@ Background: the book store has several books
     | title               | list_price | year |
     | communist manifesto | 3.49       | 1848 |
     | agile manifesto     | 13.49      | 2000 |
+    | How to write one song | 19.99      | 2021 |
+    | ESaaS               | 35.99      | 2013 |
 
 # >= 1 scenario per feature
 Scenario: Search for a book by title
@@ -16,4 +18,6 @@ Scenario: Search for a book by title
   And I press "Search"
   Then I should be on the books page
   And I should see "manifesto"
+  And I should not see "ESaaS"
+  And I should not see "How to write one song"
   # 3-8 steps per scenario

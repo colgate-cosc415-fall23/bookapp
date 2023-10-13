@@ -19,8 +19,12 @@ Then('I should see {string}') do |string|
 end
 
 Given(/^these Books:$/) do |table| # table is a Cucumber::Ast::Table  
-  debugger
   table.hashes.each do |h|
     Book.create!(h)
   end
 end
+
+Then('I should not see {string}') do |string|
+    expect(page).not_to have_content(string)
+end
+
