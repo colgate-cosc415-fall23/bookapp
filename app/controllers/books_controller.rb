@@ -17,17 +17,31 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(create_params)
+    @book = Book.new(create_update_params)
     if @book.save
       flash[:notice] = "#{@book.title} successfully created"
       redirect_to books_path and return
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+    if @book.update(create_update_params)
+      flash[:notice] = "#{@book.title} successfully updated"
+      redirect_to book_path(@book) and return
+    else
+      render 'edit', status: :unprocessable_entity
     end
   end
 
   private
-  def create_params
+  def create_update_params
     params.require(:book).permit(:title, :publisher, :year, :pages, :list_price)
   end
 
