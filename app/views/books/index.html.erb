@@ -4,7 +4,8 @@
   <%= form_with url: books_path, local: true, method: :get do %>
   <%= label_tag "title_search" %>
   <%= text_field_tag "title_search", nil, maxlength: 10 %>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= link_to "Reset", books_path, class: "btn btn-dark" %>
   <% end %> 
 </div>
 

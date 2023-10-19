@@ -1,0 +1,26 @@
+<div class="container">
+<%# in app/views/books/edit.html.erb %>
+<%= form_with model: @book, method: :put do |book_form| %>
+  <%= book_form.label :title %>
+  <%= book_form.text_field :title %>
+  <br>
+
+  <%= book_form.label :publisher %>
+  <%= book_form.text_field :publisher %>
+  <br>
+
+  <%= book_form.label :year %>
+  <%= book_form.number_field :year %>
+  <br>
+
+  <%= book_form.label :pages %>
+  <%= book_form.number_field :pages %>
+  <br>
+
+  <%= book_form.label :list_price %>
+  <%= book_form.number_field :list_price, step: 0.01 %>
+  <br>
+
+  <%= book_form.submit "Create book" %>
+<% end %>
+</div>

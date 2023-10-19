@@ -40,6 +40,13 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    flash[:alert] = "Book '#{@book.title}' deleted."
+    redirect_to books_path
+  end
+
   private
   def create_update_params
     params.require(:book).permit(:title, :publisher, :year, :pages, :list_price)
