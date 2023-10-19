@@ -1,0 +1,22 @@
+
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <br>
+
+  <%= form.label :publisher %>
+  <%= form.text_field :publisher %>
+  <br>
+
+  <%= form.label :year %>
+  <%= form.number_field :year %>
+  <br>
+
+  <%= form.label :pages %>
+  <%= form.number_field :pages %>
+  <br>
+
+  <%= form.label :list_price %>
+  <%= form.number_field :list_price, step: 0.01 %>
+  <br>
+
+  <%= form.submit %>
