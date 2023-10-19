@@ -9,7 +9,7 @@
   <dt>Pages</dt>
   <dd><%= @book.pages %></dd>
   <dt>Price</dt>
-  <dd><%= @book.list_price %></dd>
+  <dd><%= number_to_currency(@book.list_price) %></dd>
   </dl> 
   <br>
 

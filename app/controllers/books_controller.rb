@@ -22,6 +22,7 @@ class BooksController < ApplicationController
       flash[:notice] = "#{@book.title} successfully created"
       redirect_to books_path and return
     else
+      flash[:alert] = "Creation failed"
       render 'new', status: :unprocessable_entity
     end
   end
@@ -36,6 +37,7 @@ class BooksController < ApplicationController
       flash[:notice] = "#{@book.title} successfully updated"
       redirect_to book_path(@book) and return
     else
+      flash[:alert] = "Update failed"
       render 'edit', status: :unprocessable_entity
     end
   end

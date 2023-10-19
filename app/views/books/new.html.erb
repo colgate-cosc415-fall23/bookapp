@@ -1,6 +1,21 @@
 <div class="container">
 <%# in app/views/books/new.html.erb %>
 <%= form_with model: @book do |book_form| %>
+
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@book.errors.count, "error") %> prevented
+        this book from being saved:
+      </h2>
+      <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= book_form.label :title %>
   <%= book_form.text_field :title %>
   <br>
@@ -21,6 +36,6 @@
   <%= book_form.number_field :list_price, step: 0.01 %>
   <br>
 
-  <%= book_form.submit "Create book" %>
+  <%= book_form.submit %>
 <% end %>
 </div>
