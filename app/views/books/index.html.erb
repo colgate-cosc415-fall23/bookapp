@@ -20,15 +20,7 @@
       </tr>
     </thead>
     <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= link_to book.title, book_path(book) %>
-        <td><%= book.publisher %>
-        <td><%= book.year %>
-        <td><%= book.pages %>
-        <td><%= number_to_currency(book.list_price) %>
-      </tr>
-    <% end %>
+      <%= render partial: 'book', collection: @books %>
     </tbody>
   </table>
   <br>

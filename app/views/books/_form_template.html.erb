@@ -1,22 +1,35 @@
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@book.errors.count, "error") %> prevented
+        this book from being saved:
+      </h2>
+      <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <%= form.label :title %>
-  <%= form.text_field :title %>
+  <%= book_form.label :title %>
+  <%= book_form.text_field :title %>
   <br>
 
-  <%= form.label :publisher %>
-  <%= form.text_field :publisher %>
+  <%= book_form.label :publisher %>
+  <%= book_form.text_field :publisher %>
   <br>
 
-  <%= form.label :year %>
-  <%= form.number_field :year %>
+  <%= book_form.label :year %>
+  <%= book_form.number_field :year %>
   <br>
 
-  <%= form.label :pages %>
-  <%= form.number_field :pages %>
+  <%= book_form.label :pages %>
+  <%= book_form.number_field :pages %>
   <br>
 
-  <%= form.label :list_price %>
-  <%= form.number_field :list_price, step: 0.01 %>
+  <%= book_form.label :list_price %>
+  <%= book_form.number_field :list_price, step: 0.01 %>
   <br>
 
-  <%= form.submit %>
+  <%= book_form.submit %>
