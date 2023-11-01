@@ -9,19 +9,20 @@ class ReviewsController < ApplicationController
     # book_id because of nested route
     @book = Book.find(params[:book_id])
      # build sets the book foreign key automatically
-    @review = Review.new(create_update_params)
-    @book.reviews << @review
+    @review = @book.reviews.build(create_update_params)
+    @review.review_author = current_user.review_author
     if @review.save
       flash[:notice] = 'Review successfully created.'
       redirect_to(book_path(@book))
     else
-      flash[:notice] = 'Failure to create new review.'
-      redirect_to(new_book_review_path(@book))
+      flash[:alert] = 'Failure to create new review.'
+      render :new, status: :unprocessable_entity
+      # redirect_to(new_book_review_path(@book))
     end
   end
 
   private
   def create_update_params
-    params.require(:review).permit(:stars, :description)
+    params.require(:review).permit(:stars, :review)
   end
 end

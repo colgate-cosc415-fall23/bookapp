@@ -3,6 +3,7 @@ class CreateReviewAuthors < ActiveRecord::Migration[7.0]
     create_table :review_authors do |t|
       t.string :name
       t.text :biography
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,4 +1,5 @@
-User.create!(email: "admin@colgate.edu", password: "colgate13", admin: true)
+u = User.create!(email: "admin@colgate.edu", password: "colgate13", admin: true)
+ReviewAuthor.create!(user: u)
 
 b1 = Book.create!(title: "ESaaS, first edition", pages: 234, publisher: "Strawberry Canyon", year: 2015, list_price: 19.99)
 b2 = Book.create!(title: "Moby Dick", pages: 999, publisher: "Unknown", year: 1830, list_price: 9.99)
@@ -31,9 +32,12 @@ b7.authors << a7
 
 blist = [b1, b2, b3, b4, b5, b6, b7]
 rauthors = []
-rauthors << ReviewAuthor.create!(name: "Brian Casey")
-rauthors << ReviewAuthor.create!(name: "Lesleigh Cushing")
-rauthors << ReviewAuthor.create!(name: "Paul McLoughlin")
+u1 = User.create!(email: 'bcasey@colgate.edu', password: 'colgate13')
+rauthors << ReviewAuthor.create!(name: "Brian Casey", user: u1)
+u2 = User.create!(email: 'lcushing@colgate.edu', password: 'colgate13')
+rauthors << ReviewAuthor.create!(name: "Lesleigh Cushing", user: u2)
+u3 = User.create!(email: 'pmcloughlin@colgate.edu', password: 'colgate13')
+rauthors << ReviewAuthor.create!(name: "Paul McLoughlin", user: u3)
 
 1.upto(7) do |id|
     puts "Adding reviews to book #{id}"

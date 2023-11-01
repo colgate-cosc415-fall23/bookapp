@@ -24,6 +24,8 @@
     </tbody>
   </table>
   <br>
-  <%= link_to "Create new book", new_book_path, class: "btn btn-secondary" %>
+  <% if user_signed_in? && current_user.admin %>
+    <%= link_to "Create new book", new_book_path, class: "btn btn-secondary" %>
+  <% end %>
   </div>
 </section>

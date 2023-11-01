@@ -1,11 +1,11 @@
-<%= form_with [@book,@review], method: :post, local: true do |f| %>
+<%= form_with model: @review, url: book_reviews_path(@book), method: :post do |f| %>
   <div class="field">
     <%= f.label :stars, "Stars" %>
     <%= f.number_field :stars, :in => 1..5 %>
   </div>
   <div class="field">
-    <%= f.label :description, "Description" %>
-    <%= f.text_field :description %>
+    <%= f.label :review, "Review" %>
+    <%= f.text_field :review %>
   </div>
   <br>
   <%= f.submit "Submit review" %>
