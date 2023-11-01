@@ -1,3 +1,5 @@
+User.create!(email: "admin@colgate.edu", password: "colgate13", admin: true)
+
 b1 = Book.create!(title: "ESaaS, first edition", pages: 234, publisher: "Strawberry Canyon", year: 2015, list_price: 19.99)
 b2 = Book.create!(title: "Moby Dick", pages: 999, publisher: "Unknown", year: 1830, list_price: 9.99)
 b3 = Book.create!(title: "The Brothers Karamazov", pages: 1200, publisher: "Unknown", year: 1875, list_price: 12.99)
