@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 
   scope :pageorder, -> { order('pages DESC') }
   scope :with_pages, ->(min, max) { where('pages >= ? AND pages <= ?', min, max) }
-  scope :living_writers, ->{ joins(:authors).where('authors.dod is ?', nil).uniq }
+  scope :living_writers, ->{ joins(:authors).where('dod is ?', nil).uniq }
   scope :with_good_reviews, ->(rating) { joins(:reviews).group(:book_id).having('AVG(stars) >= ?', rating) }
   scope :books_by, ->(name) { joins(:authors).where('name LIKE ?', "%#{name}%") }
 

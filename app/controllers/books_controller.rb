@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update]
+
   def index
     searchfield = params[:title_search]
     @books = if params[:title_search]

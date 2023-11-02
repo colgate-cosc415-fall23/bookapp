@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     # book_id because of nested route
     @book = Book.find(params[:book_id])
